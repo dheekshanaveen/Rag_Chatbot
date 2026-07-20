@@ -7,9 +7,18 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Initialize app
+const app = express();
+const PORT = 3000;
+
 // Middlewares
 app.use(cors());
 app.use(express.json());
+
+// ABSOLUTE PATH to files
+const filesPath = path.join(__dirname, "downloaded_files");
+
+console.log("Serving files from:", filesPath);
 
 // Serve files statically
 app.use("/files", express.static(filesPath));
