@@ -22,13 +22,3 @@ console.log("Serving files from:", filesPath);
 
 // Serve files statically
 app.use("/files", express.static(filesPath));
-
-// Root endpoint
-app.get("/", (req, res) => {
-  res.send("File server running");
-});
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`File server running at http://localhost:${PORT}`);
-});
